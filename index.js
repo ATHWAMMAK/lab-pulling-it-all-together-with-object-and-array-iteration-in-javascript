@@ -114,3 +114,97 @@ function gameObject() {
         },
     };
 }
+
+const numPointsScored = (playerName) => {
+    const game = gameObject();
+
+    if (game.home.players[playerName]) {
+        return game.home.players[playerName].points;
+    } else if (game.away.players[playerName]) {
+        return game.away.players[playerName].points;
+    } else {
+        return "Player not found";
+    }
+};
+
+console.log(numPointsScored("Alan Anderson"));
+
+const shoeSize = (playerName) => {
+    const game = gameObject();
+
+    if (game.home.players[playerName]) {
+        return game.home.players[playerName].shoe;
+    } else if (game.away.players[playerName]) {
+        return game.away.players[playerName].shoe;
+    } else {
+        return "Shoe size not found";
+    } 
+};
+
+   console.log(shoeSize("Alan Anderson"));
+
+
+   const teamColors = (teamName) => {
+    const game = gameObject();
+
+    if (game.home.teamName === teamName) {
+        return game.home.colors;
+    } else if (game.away.teamName === teamName) {
+        return game.away.colors;
+    } else {
+        return "Team colors not found";
+    }
+};
+
+console.log(teamColors("Brooklyn Nets"));
+
+const teamNames = () => {
+    const game = gameObject();
+    return [game.home.teamName, game.away.teamName];
+};
+
+console.log(teamNames());
+
+const playerNumbers = (teamName) => {
+    const game = gameObject();
+    let numbers = [];
+
+    if (game.home.teamName === teamName) {
+        for (let player in game.home.players) {
+            numbers.push(game.home.players[player].number);
+        }
+    } else if (game.away.teamName === teamName) {
+        for (let player in game.away.players) {
+            numbers.push(game.away.players[player].number);
+        }
+    } else {
+        return "Team not found";
+    }
+
+    return numbers;
+};
+
+console.log(playerNumbers("Brooklyn Nets"));
+
+const playerStats = (playerName) => {
+    const game = gameObject();
+
+    if (game.home.players[playerName]) {
+        return game.home.players[playerName];
+    } else if (game.away.players[playerName]) {
+        return game.away.players[playerName];
+    } else {
+        return "Player stats not found";
+    }
+};
+
+console.log(playerStats("Alan Anderson"));
+
+
+
+
+
+
+
+
+
